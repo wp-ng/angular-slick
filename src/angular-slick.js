@@ -4,7 +4,8 @@
   angular.module('slick', []).directive('slick', [
     '$timeout',
     '$compile',
-    function ($timeout, $compile) {
+    '$log',
+    function ($timeout, $compile, $log) {
       return {
         restrict: 'AEC',
         scope: {
@@ -68,6 +69,7 @@
               slider = angular.element(element);
 
               slider.slick('unslick');
+
               slider.find('.slick-list').remove();
 
               return slider;
@@ -80,9 +82,6 @@
               var currentIndex, customPaging, slider;
 
               slider = angular.element(element);
-
-              console.log('Test');
-              console.log(slider);
 
               if (scope.currentIndex != null) {
 

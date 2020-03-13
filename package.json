@@ -8,17 +8,18 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "yarn run -s clean & yarn run -s build & yarn run -s build:production & yarn run -s build:demo",
+    "start": "yarn run -s clean & yarn run -s build & yarn run -s build:production",
     "clean": "rimraf dist .cache demo/dist",
-    "build": "parcel build src/angular-slick.js --no-content-hash --no-cache --no-minify",
-    "build:production": "parcel build src/angular-slick.js --out-file dist/angular-slick.min.js --no-content-hash --no-cache --no-source-maps",
-    "build:demo": "parcel build demo/index.html --out-dir demo/dist"
+    "build": "parcel build src/angular-slick.js --no-content-hash --no-cache --no-minify --public-url ./",
+    "build:production": "parcel build src/angular-slick.js --out-file dist/angular-slick.min.js --no-content-hash --no-cache --no-source-maps"
   },
   "devDependencies": {
-    "jquery": "^3.4.1",
-    "slick-carousel": "^1.8.1",
-    "angular": "^1.7.4",
     "parcel-bundler": "^1.12.4",
     "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "angular": "^1.7.9",
+    "jquery": "^3.4.1",
+    "slick-carousel": "^1.8.1"
   }
 }

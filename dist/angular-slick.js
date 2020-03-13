@@ -121,7 +121,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 (function (angular) {
   'use strict';
 
-  angular.module('slick', []).directive('slick', ['$timeout', '$compile', function ($timeout, $compile) {
+  angular.module('slick', []).directive('slick', ['$timeout', '$compile', '$log', function ($timeout, $compile, $log) {
     return {
       restrict: 'AEC',
       scope: {
@@ -189,8 +189,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
           return $timeout(function () {
             var currentIndex, customPaging, slider;
             slider = angular.element(element);
-            console.log('Test');
-            console.log(slider);
 
             if (scope.currentIndex != null) {
               currentIndex = scope.currentIndex;
@@ -315,4 +313,4 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }]);
 })(angular);
 },{}]},{},["NEWc"], null)
-//# sourceMappingURL=/angular-slick.js.map
+//# sourceMappingURL=angular-slick.js.map
