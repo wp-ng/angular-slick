@@ -1,0 +1,25 @@
+{
+  "name": "angular-slick",
+  "version": "1.0.0",
+  "description": "Slick wrapper for angularjs",
+  "main": "src/slick.js",
+  "repository": "https://github.com/wp-ng/angular-slick.git",
+  "author": "Auban le Grelle <auban@viamonkey.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "parcel build src/angular-slick.js --no-content-hash --no-cache --no-minify",
+    "build:production": "parcel build src/angular-slick.js --out-file dist/angular-slick.min.js --no-content-hash --no-cache --no-source-maps",
+    "build:demo": "parcel build demo/index.html --out-dir demo/dist",
+    "start": "yarn run -s build & parcel watch demo/index.html --out-dir demo/dist",
+    "clean": "rimraf dist .cache demo/dist",
+    "all": "yarn run -s build & yarn run -s build:production & yarn run -s demo"
+  },
+  "devDependencies": {
+    "angular": "^1.7.4",
+    "jquery": "^3.4.1",
+    "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.2",
+    "slick-carousel": "^1.8.1"
+  }
+}
