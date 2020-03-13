@@ -66,6 +66,7 @@
               var slider;
 
               slider = angular.element(element);
+
               slider.slick('unslick');
               slider.find('.slick-list').remove();
 
@@ -79,6 +80,9 @@
               var currentIndex, customPaging, slider;
 
               slider = angular.element(element);
+
+              console.log('Test');
+              console.log(slider);
 
               if (scope.currentIndex != null) {
 
