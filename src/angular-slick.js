@@ -83,7 +83,7 @@
 
               slider = angular.element(element);
 
-              if (scope.currentIndex != null) {
+              if (scope.currentIndex !== null) {
 
                 currentIndex = scope.currentIndex;
               }
@@ -108,7 +108,7 @@
                   scope.onInit();
                 }
 
-                if (currentIndex != null) {
+                if (currentIndex !== null) {
 
                   return sl.slideHandler(currentIndex);
                 }
@@ -126,11 +126,12 @@
                   });
                 }
 
-                if (currentIndex != null) {
+                if (currentIndex !== null) {
 
                   currentIndex = currentSlide;
+                  scope.currentIndex = currentSlide;
 
-                  return scope.currentIndex = currentSlide;
+                  return scope.currentIndex;
                 }
               });
 
@@ -152,7 +153,9 @@
 
                     currentIndex = currentSlide;
 
-                    return scope.currentIndex = currentSlide;
+                    scope.currentIndex = currentSlide;
+
+                    return scope.currentIndex;
                   });
                 }
               });
@@ -201,7 +204,7 @@
 
               return scope.$watch('currentIndex', function (newVal, oldVal) {
 
-                if (currentIndex != null && newVal != null && newVal !== currentIndex) {
+                if (currentIndex !== null && newVal !== null && newVal !== currentIndex) {
 
                   return slider.slick('slickGoTo', newVal);
                 }
@@ -224,7 +227,9 @@
 
                 initializeSlick();
 
-                return isInitialized = true;
+                isInitialized = true;
+
+                return isInitialized;
               }
             });
           }

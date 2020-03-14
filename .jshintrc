@@ -1,5 +1,5 @@
 {
-  "bitwise": false,
+  "bitwise": true,
   "browser": true,
   "curly": true,
   "eqeqeq": true,
@@ -11,5 +11,5 @@
   "newcap": true,
   "noarg": true,
   "node": true,
-  "strict": true
+  "strict": false
 }
