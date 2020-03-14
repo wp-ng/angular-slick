@@ -8,7 +8,7 @@ Basic usage
 ---------------
 Install yarn package:
 ```bash
-yarn add wp-ng/angular-slick,
+yarn add wp-ng/angular-slick
 ```
 
 [Demo]: https://wp-ng.github.io/angular-slick/demo/
