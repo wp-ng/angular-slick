@@ -1,18 +1,16 @@
 {
-  "name": "angular-slick",
+  "name": "@wp-ng/angular-slick",
   "version": "1.0.0",
   "description": "Slick wrapper for angularjs",
   "main": "src/slick.js",
   "repository": "https://github.com/wp-ng/angular-slick.git",
   "author": "Auban le Grelle <auban@viamonkey.com>",
   "license": "MIT",
-  "private": false,
   "scripts": {
-    "start": "yarn run -s clean & yarn run -s build & yarn run -s build:production",
+    "start": "gulp default",
     "clean": "gulp clean",
     "jshint": "gulp jshint",
-    "build": "parcel build src/angular-slick.js --no-content-hash --no-cache --no-minify --public-url ./",
-    "build:production": "parcel build src/angular-slick.js --out-file dist/angular-slick.min.js --no-content-hash --no-cache --no-source-maps"
+    "build": "gulp build"
   },
   "devDependencies": {
     "del": "^5.1.0",
