@@ -26,8 +26,8 @@
   <section id="features" class="blue" ng-init="index=2">
     <div class="content">
       <h2>Single Item</h2>
-      <slick ng-cloak class="slider single-item" current-index="index" responsive="breakpoints" slides-to-show=3 slides-to-scroll=3>
-        <div ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"><h3>{{ i }}</h3></div>
+      <slick ng-cloak class="slider single-item" current-index="index" responsive="breakpoints" slides-to-show=3 slides-to-scroll=3 slides="slick-item">
+        <slick-item ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"><h3>{{ i }}</h3></slick-item>
       </slick>
       <p>Current index: {{ index }}</p>
       <a class="button" href="" ng-click="index=4">Click to change index to 4</a>
@@ -38,14 +38,26 @@
         <div ng-repeat="thing in awesomeThings"><h3>{{ thing }}</h3></div>
       </slick>
       <hr/>
-      <h2>One At A Time</h2>
-      <slick ng-cloak dots="true" infinite="false" speed=300 slides-to-show=5 touch-move="false" slides-to-scroll=1 class="slider one-time">
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
+      <h2>One At A Time Rows</h2>
+      <slick ng-cloak dots="true" infinite="false" speed=300 slides-to-show=5 touch-move="false" slides-to-scroll=1 class="slider one-time" slides="slick-item" rows="3">
+        <slick-item><h3>1</h3></slick-item>
+        <slick-item><h3>2</h3></slick-item>
+        <slick-item><h3>3</h3></slick-item>
+        <slick-item><h3>4</h3></slick-item>
+        <slick-item><h3>5</h3></slick-item>
+        <slick-item><h3>6</h3></slick-item>
+        <slick-item><h3>7</h3></slick-item>
+        <slick-item><h3>8</h3></slick-item>
+        <slick-item><h3>9</h3></slick-item>
+        <slick-item><h3>10</h3></slick-item>
+        <slick-item><h3>11</h3></slick-item>
+        <slick-item><h3>12</h3></slick-item>
+        <slick-item><h3>13</h3></slick-item>
+        <slick-item><h3>14</h3></slick-item>
+        <slick-item><h3>15</h3></slick-item>
+        <slick-item><h3>16</h3></slick-item>
+        <slick-item><h3>17</h3></slick-item>
+        <slick-item><h3>18</h3></slick-item>
       </slick>
       <br>
       <hr/>
