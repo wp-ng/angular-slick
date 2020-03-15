@@ -204,8 +204,8 @@
                 respondTo: scope.respondTo || 'window',
                 responsive: scope.responsive || void 0,
                 rtl: scope.rtl === 'true',
-                rows: scope.rows ? parseInt(scope.rows, 10) : 1,
-                slide: scope.slide || 'div',
+                slide: scope.slide || '',
+                rows: scope.rows ? parseInt(scope.rows, 10) : (scope.slide === 'div' || scope.slide === '' ? 1 : 0), //Set rows 0 if slide is not empty string or div tag.
                 slidesPerRow: scope.slidesPerRow ? parseInt(scope.slidesPerRow, 10) : 1,
                 slidesToShow: scope.slidesToShow ? parseInt(scope.slidesToShow, 10) : 1,
                 slidesToScroll: scope.slidesToScroll ? parseInt(scope.slidesToScroll, 10) : 1,
