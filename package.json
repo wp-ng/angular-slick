@@ -1,6 +1,6 @@
 {
   "name": "@wp-ng/angular-slick",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Slick wrapper for angularjs",
   "main": "src/slick.js",
   "repository": "https://github.com/wp-ng/angular-slick.git",
