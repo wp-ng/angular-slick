@@ -83,7 +83,7 @@
 
               slider = angular.element(element);
 
-              if (scope.currentIndex !== null) {
+              if (scope.currentIndex) {
 
                 currentIndex = scope.currentIndex;
               }
@@ -108,7 +108,7 @@
                   scope.onInit();
                 }
 
-                if (currentIndex !== null) {
+                if (currentIndex) {
 
                   return sl.slideHandler(currentIndex);
                 }
@@ -126,7 +126,7 @@
                   });
                 }
 
-                if (currentIndex !== null) {
+                if (currentIndex) {
 
                   currentIndex = currentSlide;
                   scope.currentIndex = currentSlide;
@@ -147,7 +147,7 @@
                   });
                 }
 
-                if (currentIndex != null) {
+                if (currentIndex) {
 
                   return scope.$apply(function () {
 
@@ -168,7 +168,7 @@
                 appendArrows: scope.appendArrows ? angular.element(scope.appendArrows) : angular.element(element),
                 appendDots: scope.appendDots ? angular.element(scope.appendDots) : angular.element(element),
                 autoplay: scope.autoplay === 'true',
-                autoplaySpeed: scope.autoplaySpeed != null ? parseInt(scope.autoplaySpeed, 10) : 3000,
+                autoplaySpeed: scope.autoplaySpeed ? parseInt(scope.autoplaySpeed, 10) : 3000,
                 centerMode: scope.centerMode === 'true',
                 centerPadding: scope.centerPadding || '50px',
                 cssEase: scope.cssEase || 'ease',
@@ -188,9 +188,9 @@
                 responsive: scope.responsive || void 0,
                 rtl: scope.rtl === 'true',
                 slide: scope.slide || 'div',
-                slidesToShow: scope.slidesToShow != null ? parseInt(scope.slidesToShow, 10) : 1,
-                slidesToScroll: scope.slidesToScroll != null ? parseInt(scope.slidesToScroll, 10) : 1,
-                speed: scope.speed != null ? parseInt(scope.speed, 10) : 300,
+                slidesToShow: scope.slidesToShow ? parseInt(scope.slidesToShow, 10) : 1,
+                slidesToScroll: scope.slidesToScroll ? parseInt(scope.slidesToScroll, 10) : 1,
+                speed: scope.speed ? parseInt(scope.speed, 10) : 300,
                 swipe: scope.swipe !== 'false',
                 swipeToSlide: scope.swipeToSlide === 'true',
                 touchMove: scope.touchMove !== 'false',
@@ -204,7 +204,7 @@
 
               return scope.$watch('currentIndex', function (newVal, oldVal) {
 
-                if (currentIndex !== null && newVal !== null && newVal !== currentIndex) {
+                if (currentIndex && newVal && newVal !== currentIndex) {
 
                   return slider.slick('slickGoTo', newVal);
                 }
@@ -218,7 +218,7 @@
 
             return scope.$watch('data', function (newVal, oldVal) {
 
-              if (newVal != null) {
+              if (newVal) {
 
                 if (isInitialized) {
 
