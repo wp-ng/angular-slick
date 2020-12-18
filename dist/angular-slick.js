@@ -119,6 +119,22 @@
                   scope.onInit();
                 }
 
+                //Compile Cloned Slide
+                var $clonedSlides = angular.element(evt.currentTarget).find('.slick-cloned');
+                if ($clonedSlides.length > 0) {
+                  angular.forEach($clonedSlides, function(slide, index) {
+                    var $slide = angular.element(slide);
+                    var $scope = $slide.scope();
+
+                    $slide.find('[ng-transclude]').removeAttr('ng-transclude');
+                    $slide.find('[data-ng-transclude]').removeAttr('data-ng-transclude');
+
+                    var $cloneInner = $compile($slide.html())($scope);
+
+                    $slide.empty().append($cloneInner);
+                  });
+                }
+
                 if (currentIndex) {
 
                   return sl.slideHandler(currentIndex);
