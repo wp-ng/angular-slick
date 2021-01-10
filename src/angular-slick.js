@@ -80,7 +80,6 @@
 
               //Debounce recompile slides
               recompileDebounce = $timeout(function () {
-                console.log('Slick slides', $slides);
 
                 angular.forEach($slides, function(slide, index) {
 
