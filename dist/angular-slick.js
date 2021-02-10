@@ -65,13 +65,15 @@
           waitForAnimate: '@',
           zIndex: '@',
           prevArrow: '@',
-          nextArrow: '@'
+          nextArrow: '@',
+          compileClone: '@'
         },
         link: function (scope, element, attrs) {
 
           var destroySlick, initializeSlick, isInitialized, recompileDebounce;
+          var compileCloneTimeout = scope.compileClone === 'true' ? 100 : parseInt(scope.compileClone, 10);
 
-          function compile_slide($slides, debounce) {
+            function compile_slides($slides, debounce) {
 
             //Compile Cloned Slide
             if ($slides && $slides.length > 0) {
@@ -115,6 +117,7 @@
               return slider;
             });
           };
+
           initializeSlick = function () {
 
             return $timeout(function () {
@@ -144,13 +147,17 @@
               slider.on('breakpoint', function (evt, sl) {
 
                 //Compile Cloned Slide
-                compile_slide(angular.element(evt.currentTarget).find('.slick-cloned'), 100);
+                if (compileCloneTimeout) {
+                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), compileCloneTimeout);
+                }
               });
 
               slider.on('reInit', function (evt, sl) {
 
                 //Compile Cloned Slide
-                compile_slide(angular.element(evt.currentTarget).find('.slick-cloned'), 100);
+                if (compileCloneTimeout) {
+                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), compileCloneTimeout);
+                }
               });
 
               slider.on('init', function (evt, sl) {
@@ -161,7 +168,9 @@
                 }
 
                 //Compile Cloned Slide
-                compile_slide(angular.element(evt.currentTarget).find('.slick-cloned'), 100);
+                if (compileCloneTimeout) {
+                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), compileCloneTimeout);
+                }
 
                 if (currentIndex) {
 
