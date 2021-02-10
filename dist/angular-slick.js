@@ -73,7 +73,7 @@
           var destroySlick, initializeSlick, isInitialized, recompileDebounce;
           var compileCloneTimeout = scope.compileClone === 'true' ? 100 : parseInt(scope.compileClone, 10);
 
-            function compile_slides($slides, debounce) {
+          function compile_slides($slides, scope, debounce) {
 
             //Compile Cloned Slide
             if ($slides && $slides.length > 0) {
@@ -86,16 +86,16 @@
                 angular.forEach($slides, function(slide, index) {
 
                   var $slide = angular.element(slide);
-                  var $scope = $slide.scope();
 
-                  $slide.find('[ng-transclude]').removeAttr('ng-transclude');
-                  $slide.find('[data-ng-transclude]').removeAttr('data-ng-transclude');
+                  if (scope) {
 
-                  if ($scope) {
-                    var $cloneInner = $compile($slide.html())($scope);
+                    $slide.find('[ng-transclude]').removeAttr('ng-transclude');
+                    $slide.find('[data-ng-transclude]').removeAttr('data-ng-transclude');
+
+                    var $cloneInner = $compile($slide.html())(scope);
 
                     $slide.empty().append($cloneInner);
-                    $scope.$apply();
+                    scope.$apply();
                   }
                 });
               }, parseInt(debounce, 10));
@@ -148,7 +148,7 @@
 
                 //Compile Cloned Slide
                 if (compileCloneTimeout) {
-                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), compileCloneTimeout);
+                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), scope, compileCloneTimeout);
                 }
               });
 
@@ -156,7 +156,7 @@
 
                 //Compile Cloned Slide
                 if (compileCloneTimeout) {
-                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), compileCloneTimeout);
+                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), scope, compileCloneTimeout);
                 }
               });
 
@@ -169,7 +169,7 @@
 
                 //Compile Cloned Slide
                 if (compileCloneTimeout) {
-                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), compileCloneTimeout);
+                  compile_slides(angular.element(evt.currentTarget).find('.slick-cloned'), scope, compileCloneTimeout);
                 }
 
                 if (currentIndex) {
